@@ -23,9 +23,6 @@ Servo RightWheel;  // create servo object to control a servo
 int LWPin = 5; //set the pin number for your left servo-motors (just change the number if not pin 9)
 int RWPin = 6; //right-wheel control pin
 
-int RecordMacro = 1;
-double myMacros[10];
-int number_of_macros=0;
 
 
 void setup() 
@@ -45,23 +42,24 @@ void setup()
 void loop() 
 { 
 
-   
-     if ( digitalRead(11) == HIGH && digitalRead(12) == HIGH) {
+
+
+     if ( digitalRead(9) == HIGH && digitalRead(10) == HIGH && digitalRead(11) == HIGH && digitalRead(12) == HIGH) {
+        RotateLeft(2);      
+        Forward(1); 
+     }
+     else if ( digitalRead(11) == HIGH && digitalRead(12) == HIGH) {
       RotateRight(1);
       RotateLeft(2);
       Forward(1);
       Backward(1);    
      }
-      else if ( digitalRead(9) == HIGH && digitalRead(10) == HIGH && digitalRead(11) == HIGH && digitalRead(12) == HIGH) {
-      RotateLeft(2);      
-      Forward(1); 
-     }
      //The Basic Controls
      else if ( digitalRead(9) == HIGH && digitalRead(10) == HIGH) {
-      Stop(0.1);   
+      Stop(0.1);  
      }
      else if ( digitalRead(9) == HIGH) {       
-       Forward(0.1);
+       Forward(0.1); 
      }
      else if ( digitalRead(10) == HIGH) {
        RotateLeft(0.1);
@@ -81,22 +79,24 @@ void loop()
    //  RotateLeft(2);
    //  RotateRight(2);
    //  Stop(3);
-     
-     
+    
      
 } 
 
 
-/*
-void runMacro(int number_of_commands);
-{
- for( int i=0; i < number_of_commands; i++ ) {
-   myMacros
- }
-  
-  
-}
-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
